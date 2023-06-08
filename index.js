@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const {handleError} = require('./utils/errorHandling');
+const { origin } = require('./utils/constants');
 
 const {connect_db} = require('./db');
 
@@ -15,7 +16,7 @@ const authRouter = require('./routes/authRouter');
 const userRouter = require('./routes/userRouter');
 
 // Middlewares
-app.use(cors({ origin: "http://localhost:3000", credentials: true }));
+app.use(cors({ origin: origin, credentials: true }));
 app.use(express.json({limit: '50mb'}));
 app.use(express.urlencoded({extended: true, limit: '50mb'}));
 app.use(cookieParser());
