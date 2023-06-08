@@ -87,7 +87,6 @@ async function loginUser(req, res, next) {
         user: info
       });
     } else {
-      const err = createError(404, "Invalid Credentials");
       // console.log(err.status);
       // console.log(err.message);
 
@@ -97,7 +96,7 @@ async function loginUser(req, res, next) {
       // });  
     }
   } else {
-    return next(createError(404, "Invalid Credentials"));
+    return next(createError(404, "User not found"));
     // res.status(404).send({
     //   error: "Invalid Credentials"
     // });
