@@ -16,7 +16,7 @@ const authRouter = require('./routes/authRouter');
 const userRouter = require('./routes/userRouter');
 
 // Middlewares
-app.use(cors({ credentials: true }));
+app.use(cors({ origin: origin, credentials: true }));
 app.use(express.json({limit: '50mb'}));
 app.use(express.urlencoded({extended: true, limit: '50mb'}));
 app.use(cookieParser());
